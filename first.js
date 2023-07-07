@@ -1,20 +1,29 @@
-const http = require('http');
+
 const express=require('express');
+
 const app=express();
 
 
-app.use((req,res,next)=>{
-console.log('in the middleware')
-next();
+app.use(express.urlencoded({extended:false}));
+
+app.use('/add-prod',(req,res,next)=>{
+res.send('<form action="/product" method="POST"><input type="text" name="title"><input type="text" name="size"><button type="submit">add product</button></form>')
 });
 
-app.use((req,res,next)=>{
-  const nm={name:'ll' }
-  console.log('in the next middleware');
-  res.send(nm);
+app.post('/product',(req,res,next)=>{
+  console.log(req.body);
+  res.redirect('/');
 });
 
-app.listen(3000);
+
+app.use('/',(req,res,next)=>{
+  res.send('<h1>hello from express</h1>');
+});
+
+app.listen(4000);
+
+
+
 
 
  
