@@ -3,11 +3,12 @@ const express=require('express');
 
 const app=express();
 const adminroutes=require('./routes/admin')
-
+const deafultroutes=require('./routes/default')
 
 app.use(express.urlencoded({extended:false}));
 
 app.use(adminroutes);
+app.use(deafultroutes);
 
 
 app.use((req,res,next)=>{

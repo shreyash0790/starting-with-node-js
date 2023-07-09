@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chats</title>
+</head>
+<body>
+ <header>
+    <nav>
+        <ul>
+            <li><a href="/login">Login page</a></li>
+            <li><a href="/contact">Contact us</a></li>
+        </ul>
+    </nav>
+ </header>
+ <form action="/mess" method="POST" onsubmit="document.getElementById('username').value = localStorage.getItem('username')">
+    <input type="text" id="messages" name="messages">
+    <input type="hidden" id="username" name="username"><br>
+    <button type="submit">SEND</button>
+</form>
+</body>
+</html>
