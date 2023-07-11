@@ -2,9 +2,10 @@ const path=require('path');
 const express = require('express');
 const fs=require('fs');
 const router = express.Router();
+const rootdir=require('../util/path')
 
 router.get('/login', (req, res, next) => {
-    res.sendFile(path.join(__dirname,'../','views','admin.html'))
+    res.sendFile(path.join(rootdir,'views','admin.html'))
 });
 
 

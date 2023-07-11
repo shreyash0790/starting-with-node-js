@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chats</title>
-</head>
-<body>
- <header>
-    <nav>
-        <ul>
-            <li><a href="/login">Login page</a></li>
-            <li><a href="/contact">Contact us</a></li>
-        </ul>
-    </nav>
- </header>
- <form action="/mess" method="POST" onsubmit="document.getElementById('username').value = localStorage.getItem('username')">
-    <input type="text" id="messages" name="messages">
-    <input type="hidden" id="username" name="username"><br>
-    <button type="submit">SEND</button>
-</form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>chat app</title>
+   <link rel="stylesheet" href="/css/default.css">
+  </head>
+  <body>
+    <header>
+      <h1>Chat App</h1>
+      <h3><a href="/login">Login page</a></h3>
+      <h3><a href="/contact">Contact us</a></h3>
+    </header>
+
+    <section class="container">
+      <form id="my-form" action="/mess" method="POST" onsubmit="document.getElementById('username').value = localStorage.getItem('username')">
+        <h1>Type your messages Here</h1>
+        <div class="msg"></div>
+        <div>
+          <label for="name">Messages</label>
+          <input type="text" id="messages" name="messages">
+          <input type="hidden" id="username" name="username"><br>
+        </div>
+        <input class="btn" type="submit" value="Submit">
+      </form>
+
+      <ul id="users"></ul>
+
+      <ul class="items">
+        <li class="item"></li>
+      </ul>
+    </section>
+  </body>
 </html>
