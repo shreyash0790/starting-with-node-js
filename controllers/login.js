@@ -1,6 +1,7 @@
 const rootdir=require('../util/path')
 const path=require('path');
 const fs=require('fs');
+const mod=require('../models/login');
 
 exports.login=(req, res, next) => {
     res.sendFile(path.join(rootdir,'views','admin.html'))
@@ -8,7 +9,8 @@ exports.login=(req, res, next) => {
 
 
 exports.loginpost=(req, res, next) => {
-    console.log(req.body);
+    const model=new mod(req.body.username,req.body.messages)
+    model.save();
     if(req.body.messages){
     fs.appendFile("user.txt",`${req.body.username}:${req.body.messages}\n`,(err)=>err?console.log(err):res.redirect('/'))
     }
