@@ -1,25 +1,9 @@
-const path=require('path');
 const express = require('express');
-const fs=require('fs');
 const router = express.Router();
-const rootdir=require('../util/path')
+const logincontroller=require('../controllers/login')
 
-router.get('/login', (req, res, next) => {
-    res.sendFile(path.join(rootdir,'views','admin.html'))
-});
+router.get('/login',logincontroller.login);
 
-
-
-router.post('/mess', (req, res, next) => {
-    console.log(req.body);
-    if(req.body.messages){
-    fs.appendFile("user.txt",`${req.body.username}:${req.body.messages}\n`,(err)=>err?console.log(err):res.redirect('/'))
-    }
-    else{
-    res.redirect('/');
-    }
-});
-
-
+router.post('/mess',logincontroller.loginpost);
 
 module.exports=router;
